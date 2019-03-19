@@ -3,7 +3,7 @@ RSpec.describe Baht do
     expect(Baht::VERSION).not_to be nil
   end
 
-  describe '#words' do
+  describe "#words" do
     it "exists" do
       expect(described_class).to respond_to :words
     end
@@ -55,5 +55,49 @@ RSpec.describe Baht do
     it_behaves_like "translatable", -0.001, "ศูนย์บาทถ้วน"
     it_behaves_like "translatable", -0.01, "ลบหนึ่งสตางค์"
     it_behaves_like "translatable", -3.5, "ลบสามบาทห้าสิบสตางค์"
+
+    # From https://github.com/greatfriends/ThaiBahtText/wiki/Sample-Result
+    it_behaves_like "translatable", 0.00, "ศูนย์บาทถ้วน"
+    it_behaves_like "translatable", 1.00, "หนึ่งบาทถ้วน"
+    it_behaves_like "translatable", 2.00, "สองบาทถ้วน"
+    it_behaves_like "translatable", 3.00, "สามบาทถ้วน"
+    it_behaves_like "translatable", 10.00, "สิบบาทถ้วน"
+    it_behaves_like "translatable", 11.00, "สิบเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 12.00, "สิบสองบาทถ้วน"
+    it_behaves_like "translatable", 20.00, "ยี่สิบบาทถ้วน"
+    it_behaves_like "translatable", 21.00, "ยี่สิบเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 31.00, "สามสิบเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 91.00, "เก้าสิบเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 100.00, "หนึ่งร้อยบาทถ้วน"
+    it_behaves_like "translatable", 101.00, "หนึ่งร้อยเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 111.00, "หนึ่งร้อยสิบเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 125.00, "หนึ่งร้อยยี่สิบห้าบาทถ้วน"
+    it_behaves_like "translatable", 201.00, "สองร้อยเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 501.00, "ห้าร้อยเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 1_001.00, "หนึ่งพันเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 1_101.00, "หนึ่งพันหนึ่งร้อยเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", 5_001_000_000.00, "ห้าพันเอ็ดล้านบาทถ้วน"
+    it_behaves_like "translatable", 5_001_000_001.00, "ห้าพันเอ็ดล้านเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", -1.00, "ลบหนึ่งบาทถ้วน"
+    it_behaves_like "translatable", -11.00, "ลบสิบเอ็ดบาทถ้วน"
+    it_behaves_like "translatable", -120.00, "ลบหนึ่งร้อยยี่สิบบาทถ้วน"
+    it_behaves_like "translatable", 0.01, "หนึ่งสตางค์"
+    it_behaves_like "translatable", 0.10, "สิบสตางค์"
+    it_behaves_like "translatable", 0.11, "สิบเอ็ดสตางค์"
+    it_behaves_like "translatable", 0.21, "ยี่สิบเอ็ดสตางค์"
+    it_behaves_like "translatable", 0.25, "ยี่สิบห้าสตางค์"
+    it_behaves_like "translatable", 0.50, "ห้าสิบสตางค์"
+    it_behaves_like "translatable", 0.75, "เจ็ดสิบห้าสตางค์"
+    it_behaves_like "translatable", 0.91, "เก้าสิบเอ็ดสตางค์"
+    it_behaves_like "translatable", -0.01, "ลบหนึ่งสตางค์"
+    it_behaves_like "translatable", -0.10, "ลบสิบสตางค์"
+    it_behaves_like "translatable", -0.11, "ลบสิบเอ็ดสตางค์"
+    it_behaves_like "translatable", -0.21, "ลบยี่สิบเอ็ดสตางค์"
+    it_behaves_like "translatable", -0.25, "ลบยี่สิบห้าสตางค์"
+    it_behaves_like "translatable", -0.50, "ลบห้าสิบสตางค์"
+    it_behaves_like "translatable", -0.75, "ลบเจ็ดสิบห้าสตางค์"
+    it_behaves_like "translatable", -0.91, "ลบเก้าสิบเอ็ดสตางค์"
+    it_behaves_like "translatable", -999_999_999_999.99, "ลบเก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้าล้านเก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้าบาทเก้าสิบเก้าสตางค์"
+    it_behaves_like "translatable", 999_999_999_999.99, "เก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้าล้านเก้าแสนเก้าหมื่นเก้าพันเก้าร้อยเก้าสิบเก้าบาทเก้าสิบเก้าสตางค์"
   end
 end
