@@ -1,0 +1,42 @@
+---
+kind: pipeline
+name: ruby-2-5
+
+clone:
+  depth: 5
+
+steps:
+- name: test
+  image: ruby:2.5
+  commands:
+  - bundle install --jobs=3 --retry=3
+  - rake
+
+---
+kind: pipeline
+name: ruby-2-4
+
+clone:
+  depth: 5
+
+steps:
+- name: test
+  image: ruby:2.4
+  commands:
+  - bundle install --jobs=3 --retry=3
+  - rake
+
+---
+kind: pipeline
+name: ruby-2-3
+
+clone:
+  depth: 5
+
+steps:
+- name: test
+  image: ruby:2.3
+  commands:
+  - bundle install --jobs=3 --retry=3
+  - rake
+
