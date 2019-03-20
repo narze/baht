@@ -1,4 +1,4 @@
-# Baht
+# Baht [![Build Status](https://cloud.drone.io/api/badges/narze/baht/status.svg)](https://cloud.drone.io/narze/baht)
 
 Convert number to Thai Baht format.
 
